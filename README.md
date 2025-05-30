@@ -1,6 +1,7 @@
 # EduCraft API
 
-EduCraft es una plataforma educativa desarrollada en Laravel que permite gestionar cursos, lecciones, instructores, comentarios y favoritos. Este proyecto proporciona una API REST para interactuar con los datos de la plataforma.
+desarrollada en Laravel que permite gestionar cursos, lecciones, instructores, comentarios y favoritos. 
+Este proyecto proporciona una API REST para interactuar con los datos de la plataforma.
 
 ---
 
@@ -32,7 +33,7 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
 ### **Pasos**
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/seu-usuario/EduCraft.git
+    git clone https://github.com/kaioken200x/EduCraft.git
     cd EduCraft
 
 
@@ -44,7 +45,7 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Registra un nuevo usuario.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/register \
+     curl -X POST http://localhost:8000/api/register \
      -H "Content-Type: application/json" \
      -d '{"nombre": "Maria Silva", "email": "maria@email.com", "password": "contraseña123"}'
      ```
@@ -54,7 +55,7 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Inicia sesión y devuelve un token de autenticación.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/login \
+     curl -X POST http://localhost:8000/api/login \
      -H "Content-Type: application/json" \
      -d '{"email": "maria@email.com", "password": "contraseña123"}'
      ```
@@ -72,14 +73,14 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Devuelve la lista de instructores.  
      Ejemplo:  
      ```bash
-     curl -X GET http://localhost/api/instructores
+     curl -X GET http://localhost:8000/api/instructores
      ```
 
 - **POST** `/api/instructores`  
      Crea un nuevo instructor.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/instructores \
+     curl -X POST http://localhost:8000/api/instructores \
      -H "Content-Type: application/json" \
      -d '{"nombre": "Juan Silva", "email": "juan@email.com"}'
      ```
@@ -89,14 +90,14 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Devuelve la lista de cursos.  
      Ejemplo:  
      ```bash
-     curl -X GET http://localhost/api/cursos
+     curl -X GET http://localhost:8000/api/cursos
      ```
 
 - **POST** `/api/cursos`  
      Crea un nuevo curso.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/cursos \
+     curl -X POST http://localhost:8000/api/cursos \
      -H "Content-Type: application/json" \
      -d '{"titulo": "Curso de Laravel", "instructor_id": 1}'
      ```
@@ -106,14 +107,14 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Devuelve la lista de lecciones.  
      Ejemplo:  
      ```bash
-     curl -X GET http://localhost/api/lecciones
+     curl -X GET http://localhost:8000/api/lecciones
      ```
 
 - **POST** `/api/lecciones`  
      Crea una nueva lección.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/lecciones \
+     curl -X POST http://localhost:8000/api/lecciones \
      -H "Content-Type: application/json" \
      -d '{"titulo": "Introducción a Laravel", "curso_id": 1, "video_url": "http://video.com/intro.mp4"}'
      ```
@@ -123,7 +124,7 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Añade un comentario a un curso.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/comentarios \
+     curl -X POST http://localhost:8000/api/comentarios \
      -H "Content-Type: application/json" \
      -d '{"curso_id": 1, "usuario_id": 2, "comentario": "¡Excelente curso!"}'
      ```
@@ -133,7 +134,7 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Marca un curso como favorito.  
      Ejemplo:  
      ```bash
-     curl -X POST http://localhost/api/favoritos \
+     curl -X POST http://localhost:8000/api/favoritos \
      -H "Content-Type: application/json" \
      -d '{"curso_id": 1, "usuario_id": 2}'
      ```
@@ -142,5 +143,5 @@ EduCraft es una plataforma educativa desarrollada en Laravel que permite gestion
      Devuelve los cursos favoritos de un usuario.  
      Ejemplo:  
      ```bash
-     curl -X GET http://localhost/api/favoritos?usuario_id=2
+     curl -X GET http://localhost:8000/api/favoritos?usuario_id=2
      ```
