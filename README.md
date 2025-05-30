@@ -68,6 +68,18 @@ Este proyecto proporciona una API REST para interactuar con los datos de la plat
      ```
 ### **Ejemplos de Llamadas a Rutas**
 
+Todas las llamadas a la API requieren el encabezado `Authorization` con el token Bearer para autenticación. Ejemplo:  
+
+```bash
+-H "Authorization: Bearer tu-token-aqui"
+```
+
+#### **Exemplo de chamada com cabeçalho de autenticação**
+```bash
+curl -X GET http://localhost:8000/api/instructores \
+-H "Authorization: Bearer tu-token-aqui"
+```
+
 #### **Instructores**
 - **GET** `/api/instructores`  
      Devuelve la lista de instructores.  
