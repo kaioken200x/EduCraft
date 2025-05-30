@@ -36,7 +36,21 @@ Este proyecto proporciona una API REST para interactuar con los datos de la plat
     git clone https://github.com/kaioken200x/EduCraft.git
     cd EduCraft
 
+2. Configura el archivo `.env`:
+     - Edita el archivo `.env` en la raíz del proyecto para configurar las credenciales de la base de datos. Ejemplo:
+       ```env
+       DB_CONNECTION=mysql
+       DB_HOST=127.0.0.1
+       DB_PORT=3306
+       DB_DATABASE=educraft
+       DB_USERNAME=root
+       DB_PASSWORD=tu_contraseña
+       ```
 
+3. Ejecuta las migraciones para crear las tablas en la base de datos:
+     ```bash
+     php artisan migrate
+     ```
 ### **RUTAS**
 #### **Autenticación**
 
@@ -157,3 +171,5 @@ curl -X GET http://localhost:8000/api/instructores \
      ```bash
      curl -X GET http://localhost:8000/api/favoritos?usuario_id=2
      ```
+
+
