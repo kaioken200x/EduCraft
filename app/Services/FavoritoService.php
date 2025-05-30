@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoritoService
 {
+    /**
+     * Add a course to the user's favorites.
+     *
+     * @param int $cursoId
+     * @return Favorito
+     */
     public function addFavorito(int $cursoId): Favorito
     {
         $favorito = new Favorito();
@@ -15,6 +21,12 @@ class FavoritoService
         return $favorito;
     }
 
+    /**
+     * Remove a course from the user's favorites.
+     *
+     * @param int $cursoId
+     * @return bool
+     */
     public function removeFavorito($cursoId): bool
     {
         $favorito = Favorito::where('user_id', Auth::id())
@@ -28,7 +40,11 @@ class FavoritoService
 
         return false;
     }
-
+    /*/
+     * Get all favorite courses for the authenticated user.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function getFavoritos()
     {
         return Favorito::where('user_id', Auth::id())->get();

@@ -10,6 +10,10 @@ class LeccionesController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * This method retrieves a paginated list of lessons,
+     * including their associated course details.
+     * It returns the lessons in JSON format, with a maximum of 50 lessons per page.
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {

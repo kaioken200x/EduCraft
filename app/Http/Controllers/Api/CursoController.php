@@ -11,6 +11,7 @@ class CursoController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -21,6 +22,8 @@ class CursoController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -41,11 +44,13 @@ class CursoController extends Controller
 
     /**
      * Display the specified resource.
+     * 
      * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        $curso = Curso::with('instructor', 'lecciones', 'comentarios')->findOrFail($id);
+        $curso = Curso::with('instructor', 'lecciones', 'comentarios','favoritos')->findOrFail($id);
         $curso->rating_promedio = app(CursoRatingService::class)->calcularPromedio($curso);
     
         return response()->json($curso);
@@ -73,6 +78,7 @@ class CursoController extends Controller
     /**
      * Remove the specified resource from storage.
      * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

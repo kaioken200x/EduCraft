@@ -15,16 +15,15 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->group(function () {
-
+    
     Route::get('/cursos', [CursoController::class, 'index']);
     Route::post('/cursos', [CursoController::class, 'store']);
     Route::get('/cursos/{id}', [CursoController::class, 'show']);
     Route::put('/cursos/{id}', [CursoController::class, 'update']);
     Route::delete('/cursos/{id}', [CursoController::class, 'destroy']);
-
+    
     Route::get('/instructores', [InstructorController::class, 'index']);
     Route::post('/instructores', [InstructorController::class, 'store']);
     Route::get('/instructores/{id}', [InstructorController::class, 'show']);
@@ -41,13 +40,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/favoritos', [FavoritoController::class, 'store']);
     Route::get('/favoritos', [FavoritoController::class, 'show']);
     Route::delete('/favoritos/{id}', [FavoritoController::class, 'destroy']);
-
+    
     Route::get('/leccion', [LeccionesController::class, 'index']);
     Route::post('/leccion', [LeccionesController::class, 'store']);
     Route::get('/leccion/{id}', [LeccionesController::class, 'show']);
     Route::put('/leccion/{id}', [LeccionesController::class, 'update']);
     Route::delete('/leccion/{id}', [LeccionesController::class, 'destroy']);
-
+    
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 ?>
